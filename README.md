@@ -201,19 +201,19 @@ npm run lint     # run ESLint
 
  
 ### Home
-![Home](/screenshots/Home.png)
+![Home](public/screenshots/Home.png)
 
 ### Products
-![Products](/screenshots/Products.png)
+![Products](public/screenshots/Products.png)
 
 ### Product Details
-![Product Details](/screenshots/product-details.png)
+![Product Details](public/screenshots/product-details.png)
 
 ### Cart
-![Cart](/screenshots/cart.png)
+![Cart](public/screenshots/cart.png)
 
 ### Wishlist
-![Wishlist](/screenshots/wishlist.png)
+![Wishlist](public/screenshots/wishlist.png)
 
 ### Checkout
 ![Checkout](public/screenshots/checkout.png)
@@ -282,11 +282,12 @@ The interface is designed to work smoothly across mobile, tablet, and desktop sc
 
 ## Author
 
-Name: Abdelrahman Walid
+**Abdelrahman Walid**
 
-GitHub: [abdelrahman-waliid](https://github.com/abdelrahman-waliid)
-Portfolio: Coming Soon
-LinkedIn: [LinkedIn](www.linkedin.com/in/abdelrahman-waliid)
+- GitHub: https://github.com/abdelrahman-waliid
+- LinkedIn: https://www.linkedin.com/in/abdelrahman-waliid
+- Portfolio: Coming Soon
+
 
 ## License
 
