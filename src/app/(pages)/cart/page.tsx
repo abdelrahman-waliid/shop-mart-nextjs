@@ -17,7 +17,7 @@ export default async function CartPage() {
     
 
   return  <>
-      <Cart cartData={data.numOfCartItems == 0 ? null : data}/>   
+      <Cart cartData={data && data.numOfCartItems == 0 ? null : data}/>   
       {/* da 3alashan lama agy a3red hnak y3dy mn el condition be salam l2n fe 7alet el error msh bytb3et null byetb3et object fa ana fahemto mn el awel */}
   </>
 }

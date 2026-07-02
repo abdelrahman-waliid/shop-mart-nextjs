@@ -13,7 +13,7 @@ import CheckOutSession from '../CheckOutSession/CheckOutSession';
  
 
 
-export default function Cart({cartData} : {cartData : CartRes }) {
+export default function Cart({cartData} : {cartData : CartRes | null}) {
 
     const [cart, setCart] = useState<CartRes | null>(cartData || null) 
     const [isLoading, setIsLoading] = useState<string | null>(null)
@@ -141,7 +141,7 @@ export default function Cart({cartData} : {cartData : CartRes }) {
                         </div>
 
                         <button className='w-full mt-3 h-11 rounded-xl border hover:bg-accent transition-colors duration-500 cursor-pointer'> Continue Shopping </button>
-                        <CheckOutSession cartId={cartData?.cartId} />
+                        <CheckOutSession cartId={cartData!.cartId} />
                     </div>
                     <Button variant={"outline"} className='text-destructive hover:text-destructive mt-2 ms-auto flex cursor-pointer' 
                     onClick={()=> clearCart()}> {isLoading == 'clear' && <Loader2 className='animate-spin'/>} Clear Cart </Button>
