@@ -13,7 +13,7 @@ import CheckOutSession from '../CheckOutSession/CheckOutSession';
  
 
 
-export default function Cart({cartData} : {cartData : CartRes | null}) {
+export default function Cart({cartData} : {cartData : CartRes }) {
 
     const [cart, setCart] = useState<CartRes | null>(cartData || null) 
     const [isLoading, setIsLoading] = useState<string | null>(null)

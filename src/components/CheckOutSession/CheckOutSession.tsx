@@ -20,7 +20,7 @@ import { useRouter } from "next/navigation"
 import { useRef, useState } from "react"
 import toast from "react-hot-toast"
 
-export default function CheckOutSession( {cartId} : {cartId : string | undefined } ) {
+export default function CheckOutSession( {cartId} : {cartId : string } ) {
 
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
@@ -37,33 +37,34 @@ export default function CheckOutSession( {cartId} : {cartId : string | undefined
             phone : phone.current?.value as string
         }
 
-        if(cartId){
+        try{
+          if(paymentMethod == 'card'){
 
-          
-          try{
-            if(paymentMethod == 'card'){
-              
-              const response = await checkOutCardAction(cartId  , shippingAddress) 
-              
-              if(response.status == "success"){
+            const response = await checkOutCardAction(cartId  , shippingAddress) 
+    
+            if(response.status == "success"){
                 location.href = response.session.url
-              }
-              
-            }else{
-              const response = await checkOutCashAction(cartId , shippingAddress)
-              if(response.status == 'success'){
-                toast.success('Order placed successfully')
-                router.push('/allorders')
-              }
             }
-            
-          }catch(err){
-            console.log(err); 
-          }
           
-          setIsLoading(false)
+        }else{
+          const response = await checkOutCashAction(cartId , shippingAddress)
+          if(response.status == 'success'){
+            toast.success('Order placed successfully')
+            window.dispatchEvent(
+              new CustomEvent("cartUpdate", {
+                detail: 0,
+              })
+            )
+            router.push('/allorders')
+          }
         }
+
+      }catch(err){
+        console.log(err); 
       }
+
+        setIsLoading(false)
+    }
 
   return  <> 
     <Dialog> 
