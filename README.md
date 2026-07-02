@@ -216,7 +216,7 @@ npm run lint     # run ESLint
 ![Wishlist](/screenshots/wishlist.png)
 
 ### Checkout
-![Checkout](/screenshots/checkout.png)
+![Checkout](public/screenshots/checkout.png)
 
 ## User Flow
 
