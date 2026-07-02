@@ -13,6 +13,7 @@ export default function AllOrders() {
       setIsLoading(true)
 
       const userId = localStorage.getItem("userId")
+      console.log("userId =", userId) //
 
       if(!userId){
         setIsLoading(false)
@@ -20,7 +21,10 @@ export default function AllOrders() {
       }
 
       const response = await fetch(`https://ecommerce.routemisr.com/api/v1/orders/user/` + userId)
+      console.log("status =", response.status) //
       const data: UserOrders = await response.json()
+      console.log("response =", data) //
+
 
       const newestFirst = [...data].sort(
         (a, b) =>
