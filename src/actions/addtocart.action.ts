@@ -24,12 +24,12 @@ export async function checkOutCashAction(cartId : string , shippingAddress : Shi
         return null ;
     }
 }
-export async function checkOutCardAction(cartId : string , shippingAddress : ShippingAddress) {
+export async function checkOutCardAction(cartId : string , shippingAddress : ShippingAddress , origin : string) {
 
     const session = await getServerSession(authOptions)
     if(session){
 
-        const response = await fetch( `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:3000`, {
+        const response = await fetch( `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=${origin}`, {
             headers:{
                 token:session?.token as string  , // as string 3alashan asaket el typescript la2en mayenfa3sh ykon token be undefined hia hia law 3mlt + '' 
                 'content-type' : "application/json"

@@ -39,8 +39,9 @@ export default function CheckOutSession( {cartId} : {cartId : string } ) {
 
         try{
           if(paymentMethod == 'card'){
+            const origin = window.location.origin //
 
-            const response = await checkOutCardAction(cartId  , shippingAddress) 
+            const response = await checkOutCardAction(cartId  , shippingAddress , origin) 
     
             if(response.status == "success"){
                 location.href = response.session.url
